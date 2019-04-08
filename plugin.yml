@@ -3,5 +3,5 @@ main: me.chickfla.extrautils.ExtraUtils
 version: 1.0.0
 commands:
    distance:
-      description: Get distance of 2 players.
+      description: Get distance of two players.
       usage: /distance <player1> <player2>
