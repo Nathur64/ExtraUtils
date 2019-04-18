@@ -34,7 +34,7 @@ public class CConsole extends UtilityCommand {
 		
 		for (Player player1 : Bukkit.getOnlinePlayers()) {
 			if (player1.hasPermission("extrautils.notifications.console") || player1 == player) {
-				player1.sendMessage(ChatColor.translateAlternateColorCodes('&', "&2"+player.getName()+" has disbatched the command: &6"+command+"&2 as console."));
+				player1.sendMessage(ChatColor.translateAlternateColorCodes('&', "&2"+player.getName()+" has disbatched the command: &6"+command+"&2as console."));
 			}
 		}
 		

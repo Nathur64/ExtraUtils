@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import me.chickfla.extrautils.ExtraUtils;
+import me.chickfla.extrautils.managers.UtilityCommand;
 
 public class CommandManager {
 
