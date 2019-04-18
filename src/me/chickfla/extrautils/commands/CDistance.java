@@ -3,21 +3,26 @@ package me.chickfla.extrautils.commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import me.chickfla.extrautils.managers.UtilityCommand;
 import me.chickfla.extrautils.utils.Distance;
 
-public class CDistance implements CommandExecutor {
+public class CDistance extends UtilityCommand {
 
-	private String getUsage() {
-		return "&cUsage: &b/distance &7<player1> <player2>";
+	public CDistance() {
+		super("extrautils.command.distance","&cUsage: &b/distance &7<player1> <player2>");
 	}
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player)sender;
+		
+		if (!player.hasPermission(getPermission())) {
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cInvalid Permission."));
+			return true;
+		}
 		
 		if (args.length >= 2) {
 			String p1 = args[0];
@@ -36,7 +41,7 @@ public class CDistance implements CommandExecutor {
 			
 			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cDistance: &b"+distance+" &cblocks."));
 		} else {
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', getUsage()));
+			player.sendMessage(getFormattedUsage());
 		}
 		
 		return true;

@@ -6,3 +6,6 @@ commands:
    distance:
       description: Get distance of two players.
       usage: /distance <player1> <player2>
+   console:
+      description: Sudo-Console
+      usage: /console <command>
