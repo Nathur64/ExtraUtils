@@ -2,6 +2,7 @@ name: ExtraUtils
 main: me.chickfla.extrautils.ExtraUtils
 version: 1.6.1
 description: A plugin that offers utilities for plugins written for a specific server.  It also provides extra commands so you can see what the classes and class-methods do.  
+authors: LimaBean2091, and Nathur64.  
 commands:
    extrautils:
       description: Main extra utils command
