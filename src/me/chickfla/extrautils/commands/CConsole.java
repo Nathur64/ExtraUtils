@@ -11,19 +11,14 @@ import me.chickfla.extrautils.managers.UtilityCommand;
 public class CConsole extends UtilityCommand {
 
 	public CConsole() {
-		super("extrautils.command.console", "&cUsage: /console <command>");
+		super("extrautils.command.console", "console <command>");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		Player player = (Player)sender;
-		if (!player.hasPermission(getPermission())) {
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cNo permission."));
-			return true;
-		}
+	public void onCommand(Player player, String[] args) {
 		if (args.length < 1) {
 			player.sendMessage(getFormattedUsage());
-			return true;
+			return;
 		}
 		String command = "";
 		for (int i = 0; i < args.length; i++) {
@@ -38,6 +33,6 @@ public class CConsole extends UtilityCommand {
 			}
 		}
 		
-		return true; 
+		return; 
 	}
 }

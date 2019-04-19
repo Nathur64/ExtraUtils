@@ -4,8 +4,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
-public class UtilityCommand implements CommandExecutor {
+public class UtilityCommand {
 
 	public String permission;
 	public String usage;
@@ -20,7 +21,7 @@ public class UtilityCommand implements CommandExecutor {
 	}
 	
 	public String getFormattedUsage() {
-		return ChatColor.translateAlternateColorCodes('&', usage);
+		return ChatColor.translateAlternateColorCodes('&', "&cUsage: /extrautils "+usage);
 	}
 
 	public void setUsage(String usage) {
@@ -31,7 +32,6 @@ public class UtilityCommand implements CommandExecutor {
 		return permission;
 	}
 
-	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) { return false; }
+	public void onCommand(Player player, String[] args) { };
 	
 }

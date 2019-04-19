@@ -12,18 +12,11 @@ import me.chickfla.extrautils.utils.Distance;
 public class CDistance extends UtilityCommand {
 
 	public CDistance() {
-		super("extrautils.command.distance","&cUsage: &b/distance &7<player1> <player2>");
+		super("extrautils.command.distance","&bdistance &7<player1> <player2>");
 	}
 	
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		Player player = (Player)sender;
-		
-		if (!player.hasPermission(getPermission())) {
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cInvalid Permission."));
-			return true;
-		}
-		
+	public void onCommand(Player player, String[] args) {		
 		if (args.length >= 2) {
 			String p1 = args[0];
 			String p2 = args[1];
@@ -34,7 +27,7 @@ public class CDistance extends UtilityCommand {
 				player2 = Bukkit.getPlayer(p2);
 			} catch (Exception e) {
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cCould not find one or more players."));
-				return true;
+				return;
 			}
 			
 			float distance = new Distance().DDDdistance(player1.getLocation().getX(), player1.getLocation().getY(), player1.getLocation().getZ(), player2.getLocation().getX(), player2.getLocation().getY(), player2.getLocation().getZ());
@@ -44,7 +37,7 @@ public class CDistance extends UtilityCommand {
 			player.sendMessage(getFormattedUsage());
 		}
 		
-		return true;
+		return;
 	}
 
 }
