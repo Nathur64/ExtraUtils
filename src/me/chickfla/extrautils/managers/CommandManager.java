@@ -25,7 +25,7 @@ public class CommandManager implements CommandExecutor {
 		return commands.keySet();
 	}
 
-	public void showHelp(Player sender) {
+	public static void showHelp(Player sender) {
 		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&2------&6ExtraUtils Help&2------"));
 		for (String command : getCommandsAsString()) {
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c"+command+" &2- &c")+commands.get(command).getFormattedUsage());
@@ -48,6 +48,8 @@ public class CommandManager implements CommandExecutor {
 			if (player.hasPermission(commands.get(args[0]).getPermission())) {
 				commands.get(args[0]).onCommand(player, arguments);
 			}
+		} else {
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cUnknown subcommand: "+args[0]));
 		}
 		return true;
 	}

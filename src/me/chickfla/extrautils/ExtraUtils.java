@@ -14,6 +14,7 @@ public class ExtraUtils extends JavaPlugin {
 		getLogger().info("Hello, World!");
 		CommandManager.addCommand("distance", new CDistance());
 		CommandManager.addCommand("console", new CConsole());
+		CommandManager.addCommand("help", new CHelp());
 		
 		getCommand("extrautils").setExecutor(new CommandManager());
 	}
